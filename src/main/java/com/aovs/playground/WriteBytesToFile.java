@@ -1,10 +1,5 @@
 package com.aovs.playground;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 public class WriteBytesToFile {
     // Plain vanilla solution
@@ -14,9 +9,9 @@ public class WriteBytesToFile {
         StringBuilder builder = new StringBuilder();
         for (byte b : text.getBytes()) builder.append(String.format("%7s", Integer.toBinaryString(b)).replace(' ', '0'));
         try {
-            Files.write(Paths.get(filename), builder.toString().getBytes());
-        } catch (IOException ioe) {
-            System.out.printf("Error writing text: %s to file: %s%n", text, filename);
+            java.nio.file.Files.write(java.nio.file.Paths.get(filename), builder.toString().getBytes());
+        } catch (java.io.IOException ioe) {
+            System.out.printf("Error writing text: %s to file: %s", text, filename);
         }
     }
 
@@ -26,17 +21,17 @@ public class WriteBytesToFile {
 
         byte[] bytes = text.getBytes();
         try {
-            Files.write(
-                    Paths.get(filename),
-                    IntStream
+            java.nio.file.Files.write(
+                    java.nio.file.Paths.get(filename),
+                    java.util.stream.IntStream
                             .range(0, bytes.length)
                             .mapToObj(i -> bytes[i])
                             .map(b -> String.format("%7s", Integer.toBinaryString(b)).replace(' ', '0'))
-                            .collect(Collectors.joining())
+                            .collect(java.util.stream.Collectors.joining())
                             .getBytes()
             );
-        } catch (IOException ioe) {
-            System.out.printf("Error writing text: %s to file: %s%n", text, filename);
+        } catch (java.io.IOException ioe) {
+            System.out.printf("Error writing text: %s to file: %s", text, filename);
         }
     }
 }
