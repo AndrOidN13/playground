@@ -26,6 +26,10 @@
           <option name="url" value="https://github.com/it-acad/exception-m6-s17-team-2-2/" />
           <option name="userName" value="" />
         </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="https://github.com/it-acad/spring-security-m6-s18-team-2-4" />
+          <option name="userName" value="" />
+        </UrlAndUserName>
       </list>
     </option>
     <option name="cloneParentDir" value="C:\Users\Артем\IdeaProjects" />
